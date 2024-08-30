@@ -1,12 +1,23 @@
+GitHub repo:
+
+https://github.com/TheOnlyOneAkira/zmk_sofle_choc_v3.3/actions
+
+===
+
 NICE!VIEW:
 
 https://nicekeyboards.com/docs/nice-view/getting-started/
 
 ===
 
-SOFLE CHOC V3.3
+SOFLE CHOC V3.3:
 
 lien 42keebs
 
 ===
+
+ZMK:
+
+fichier .conf
+https://zmk.dev/docs/config
 
