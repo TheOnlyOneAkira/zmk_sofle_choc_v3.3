@@ -13,6 +13,7 @@ https://nicekeyboards.com/docs/nice-view/getting-started/
 SOFLE CHOC V3.3:
 
 lien 42keebs
+https://josefadamcik.github.io/SofleKeyboard/build_guide_choc.html
 
 ===
 
@@ -20,4 +21,18 @@ ZMK:
 
 fichier .conf
 https://zmk.dev/docs/config
+https://zmk.dev/docs/keymaps/list-of-keycodes
+https://zmk.dev/docs/keymaps/behaviors/layers
+https://zmk.dev/docs/keymaps/behaviors/misc
+https://zmk.dev/docs/keymaps/behaviors/underglow
 
+https://nickcoutsos.github.io/keymap-editor/
+
+how to
+https://kriscables.com/zmk-firmware-nicenano/
+
+===
+
+QMK tools:
+
+https://config.qmk.fm/#/sofle_choc/LAYOUT
