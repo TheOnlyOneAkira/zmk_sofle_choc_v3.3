@@ -120,7 +120,7 @@
             // |        |         |         |         |         |         | RGB_TOG | |      |      |      |       |      |       |       |
             //                    |         |         |         |         |         | |      |      |      |       |      |
 
-            display-name = "adjust";
+            display-name = "SHORTCUT";
             bindings = <
 &trans  &trans    &trans           &trans             &trans     &trans                              &trans         &trans        &trans        &trans         &trans    &kp DELETE
 &trans  &kp INS   &kp PRINTSCREEN  &kp K_APPLICATION  &none      &kp LC(KP_SLASH)                    &kp PAGE_UP    &kp LC(LEFT)  &kp UP_ARROW  &kp LC(RIGHT)  &trans    &kp BACKSPACE
@@ -133,6 +133,7 @@
         };
 
         NUMPAD {
+            display-name = "NUMPAD";
             bindings = <
 &none  &none  &none  &none  &none  &none                              &kp KP_PLUS      &none            &none            &none            &none  &none
 &none  &none  &none  &none  &none  &none                              &kp KP_SUBTRACT  &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &none  &kp BACKSPACE
@@ -145,6 +146,7 @@
         };
 
         EXTRAS {
+            display-name = "EXTRAS";
             bindings = <
 &mo 6  &none  &none  &none  &none  &none                                          &none  &none             &none  &none              &none  &mo 6
 &none  &none  &none  &none  &none  &none                                          &none  &none             &none  &none              &none  &none
@@ -157,6 +159,7 @@
         };
 
         BOARD {
+            display-name = "BOARD";
             bindings = <
 &none  &none  &none  &none  &none  &bootloader                  &bootloader  &none  &none  &none  &none  &none
 &none  &none  &none  &none  &none  &sys_reset                   &sys_reset   &none  &none  &none  &none  &none
