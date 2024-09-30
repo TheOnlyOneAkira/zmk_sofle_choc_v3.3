@@ -59,7 +59,7 @@
 &kp LCTRL       &kp Z   &kp X     &kp C             &kp V   &kp B      &kp C_PLAY_PAUSE    &kp C_MUTE  &kp N           &kp M   &kp COMMA          &kp DOT        &kp FSLH  &kp RSHFT
                         &kp LALT  &TTH__LGUI_SYMBL  &mo 3   &kp SPACE  &kp RET             &kp ENTER   &kp SPACE       &mo 2   &TTH__RCTL_SHRTCT  &kp RIGHT_ALT
             >;
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_AC_SCROLL_UP C_AC_SCROLL_DOWN>;
         };
 
         SETTINGS {
@@ -71,7 +71,7 @@
 &bt BT_CLR    &none         &none         &none         &none         &none   &none     &none   &none   &none           &none              &none       &trans  &trans
                             &trans        &trans        &trans        &trans  &trans    &trans  &trans  &trans          &trans
             >;
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_AC_SCROLL_UP C_AC_SCROLL_DOWN>;
         };
 
         SYMBOLS {
@@ -83,7 +83,7 @@
 &trans  &none   &none   &kp KP_DIVIDE  &kp KP_MULTIPLY  &kp EQUAL  &trans    &trans  &kp EQUAL  &kp KP_PLUS      &kp KP_MINUS   &kp BSLH      &kp LS(RBKT)  &trans
                 &none   &none          &mo 5            &none      &trans    &trans  &trans     &trans           &trans         &trans
             >;
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_AC_SCROLL_UP C_AC_SCROLL_DOWN>;
         };
 
         SHORTCUTS {
@@ -95,7 +95,7 @@
 &none   &kp NUBS  &kp LC(X)        &kp LC(C)          &kp LC(V)  &none             &trans    &trans  &none          &kp HOME      &none         &kp END        &kp NUBS  &kp CAPSLOCK
                   &trans           &trans             &trans     &trans            &trans    &trans  &trans         &mo 5         &trans        &trans
             >;
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_AC_SCROLL_UP C_AC_SCROLL_DOWN>;
         };
 
         NUMPAD {
@@ -107,7 +107,7 @@
 &none  &none  &none  &none  &none  &none      &trans       &trans     &kp KP_ASTERISK  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &none  &none
               &none  &none  &none  &kp SPACE  &kp ENTER    &kp ENTER  &kp SPACE        &kp KP_NUMBER_0  &kp KP_EQUAL     &kp KP_DOT
             >;
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_AC_SCROLL_UP C_AC_SCROLL_DOWN>;
         };
 
         EXTRAS {
@@ -119,7 +119,7 @@
 &none  &none  &none  &none  &none  &none  &none                &none              &none  &none             &none  &none              &none  &none
               &none  &none  &none  &none  &ext_power EP_TOG    &ext_power EP_TOG  &none  &none             &none  &none
             >;
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_AC_SCROLL_UP C_AC_SCROLL_DOWN>;
         };
 
         BOARD {
@@ -131,7 +131,7 @@
 &none  &none  &none  &none  &none  &none        &none    &none  &none        &none  &none  &none  &none  &none
               &none  &none  &none  &none        &none    &none  &none        &none  &none  &none
             >;
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_AC_SCROLL_UP C_AC_SCROLL_DOWN>;
         };
     };
 };
