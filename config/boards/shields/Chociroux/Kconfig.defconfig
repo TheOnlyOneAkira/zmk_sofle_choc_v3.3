@@ -1,0 +1,25 @@
+# Copyright (c) 2020 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+if SHIELD_CHOCIROUX_DONGLE
+
+config ZMK_KEYBOARD_NAME
+	default "Chociroux Dongle"
+	
+config ZMK_SPLIT_BLE_ROLE_CENTRAL
+	default y
+	
+config ZMK_USB
+	default y
+
+endif
+
+if SHIELD_CHOCIROUX_LEFT || SHIELD_CHOCIROUX_RIGHT || SHIELD_CHOCIROUX_DONGLE 
+
+config ZMK_SPLIT
+	default y
+
+config ZMK_BLE
+	default y
+	
+endif
