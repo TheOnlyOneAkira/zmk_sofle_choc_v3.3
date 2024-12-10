@@ -101,11 +101,11 @@
         NUMPAD {
             display-name = "NUMPAD";
             bindings = <
-&none  &none  &none  &none  &none  &none                              &kp KP_PLUS      &none            &none            &none            &none  &none
-&none  &none  &none  &none  &none  &none                              &kp KP_SUBTRACT  &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &none  &kp BACKSPACE
-&none  &none  &none  &none  &none  &none                              &kp KP_DIVIDE    &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &none  &none
-&none  &none  &none  &none  &none  &none      &trans       &trans     &kp KP_ASTERISK  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &none  &none
-              &none  &none  &none  &kp SPACE  &kp ENTER    &kp ENTER  &kp SPACE        &kp KP_NUMBER_0  &kp KP_EQUAL     &kp KP_DOT
+&none  &none  &none  &RGB_EFR &RGB_TOG &RGB_EFF                              &kp KP_PLUS      &none            &none            &none            &none  &none
+&none  &none  &none  &RGB_SAD &RGB_BRI &RGB_SAI                             &kp KP_SUBTRACT  &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &none  &kp BACKSPACE
+&none  &none  &none  &RGB_HUD &RGB_BRD &RGB_HUI                             &kp KP_DIVIDE    &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &none  &none
+&none  &none  &none  &none    &none    &none        &trans       &trans     &kp KP_ASTERISK  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &none  &none
+              &none  &none    &none    &kp SPACE    &kp ENTER    &kp ENTER  &kp SPACE        &kp KP_NUMBER_0  &kp KP_EQUAL     &kp KP_DOT
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_AC_SCROLL_UP C_AC_SCROLL_DOWN>;
         };
