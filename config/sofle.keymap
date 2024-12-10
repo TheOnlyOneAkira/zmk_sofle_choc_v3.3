@@ -46,6 +46,34 @@
             #binding-cells = <0>;
             bindings = <&kp RCTRL>, <&mo 3>;
         };
+		
+		rgb_r: set_underglow_to_red {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &rgb_ug RGB_COLOR_HSB(0, 100, 50)>;
+		}
+		
+		rgb_g: set_underglow_to_green {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &rgb_ug RGB_COLOR_HSB(128, 100, 50)>;
+		}
+		
+		rgb_b: set_underglow_to_blue {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &rgb_ug RGB_COLOR_HSB(232, 100, 50)>;
+		}
+		
+		rgb_w: set_underglow_to_white {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &rgb_ug RGB_COLOR_HSB(0, 0, 50)>;
+		}
     };
 
     keymap {
@@ -102,11 +130,11 @@
         NUMPAD {
             display-name = "NUMPAD";
             bindings = <
-&none  &none  &none  &rgb_ug RGB_EFR &rgb_ug RGB_TOG &rgb_ug RGB_EFF                          &kp KP_PLUS      &none            &none            &none            &none  &none
-&none  &none  &none  &rgb_ug RGB_SAD &rgb_ug RGB_BRI &rgb_ug RGB_SAI                          &kp KP_SUBTRACT  &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &none  &kp BACKSPACE
-&none  &none  &none  &rgb_ug RGB_HUD &rgb_ug RGB_BRD &rgb_ug RGB_HUI                          &kp KP_DIVIDE    &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &none  &none
-&none  &none  &none  &none           &none           &none            &trans       &trans     &kp KP_ASTERISK  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &none  &none
-              &none  &none           &none           &kp SPACE        &kp ENTER    &kp ENTER  &kp SPACE        &kp KP_NUMBER_0  &kp KP_EQUAL     &kp KP_DOT
+&rgb_ug RGB_ON   &none  &none  &rgb_ug RGB_EFR &rgb_ug RGB_TOG &rgb_ug RGB_EFF                          &kp KP_PLUS      &none            &none            &none            &none  &none
+&none            &none  &none  &rgb_ug RGB_SAD &rgb_ug RGB_BRI &rgb_ug RGB_SAI                          &kp KP_SUBTRACT  &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &none  &kp BACKSPACE
+&rgb_ug RGB_OFF  &none  &none  &rgb_ug RGB_HUD &rgb_ug RGB_BRD &rgb_ug RGB_HUI                          &kp KP_DIVIDE    &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &none  &none
+&rgb_w           &none  &none  &none           &none           &none            &trans       &trans     &kp KP_ASTERISK  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &none  &none
+						&rgb_r &rgb_g          &rgb_b          &kp SPACE        &kp ENTER    &kp ENTER  &kp SPACE        &kp KP_NUMBER_0  &kp KP_EQUAL     &kp KP_DOT
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_AC_SCROLL_UP C_AC_SCROLL_DOWN>;
         };
