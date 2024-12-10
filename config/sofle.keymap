@@ -19,7 +19,7 @@
 #define BOARD 6
 
 &led_strip { chain-length = <29>; };
-&sensors { triggers-per-rotation = <60>; };
+&sensors { triggers-per-rotation = <30>; };
 
 / {
     behaviors {
