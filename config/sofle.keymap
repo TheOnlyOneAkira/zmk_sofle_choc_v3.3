@@ -8,6 +8,7 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/rgb.h>
 
 #define BASE 0
 #define SETTINGS 1
@@ -18,7 +19,7 @@
 #define BOARD 6
 
 &led_strip { chain-length = <29>; };
-&sensors { triggers-per-rotation = <30>; };
+&sensors { triggers-per-rotation = <60>; };
 
 / {
     behaviors {
