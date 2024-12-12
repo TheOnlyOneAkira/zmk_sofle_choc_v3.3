@@ -25,6 +25,7 @@ https://zmk.dev/docs/keymaps/list-of-keycodes
 https://zmk.dev/docs/keymaps/behaviors/layers
 https://zmk.dev/docs/keymaps/behaviors/misc
 https://zmk.dev/docs/keymaps/behaviors/underglow
+https://zmk.dev/docs/features/underglow
 
 https://nickcoutsos.github.io/keymap-editor/
 
