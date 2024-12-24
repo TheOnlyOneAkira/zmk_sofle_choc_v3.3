@@ -10,9 +10,6 @@
 #include <dt-bindings/zmk/rgb.h>  // https://zmk.dev/docs/keymaps/behaviors/underglow
 #include <dt-bindings/zmk/ext_power.h>  // https://zmk.dev/docs/keymaps/behaviors/power
 #include <dt-bindings/zmk/outputs.h>  // https://zmk.dev/docs/keymaps/behaviors/outputs
-
-
-
 #include <dt-bindings/led/led.h>  // https://zmk.dev/docs/features/underglow
 
 &pinctrl {
@@ -135,9 +132,107 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&macro_tap &rgb_ug RGB_COLOR_HSB(0, 0, 50)>;
+                = <&macro_tap &rgb_ug RGB_COLOR_HSB(160, 0, 50)>;
+		};
+		
+		rgb_p1: set_underglow_to_preset1 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &rgb_ug RGB_COLOR_HSB(10, 100, 50)>;
+		};
+		
+		rgb_p2: set_underglow_to_preset2 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &rgb_ug RGB_COLOR_HSB(50, 100, 50)>;
+		};
+		
+		rgb_p3: set_underglow_to_preset3 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &rgb_ug RGB_COLOR_HSB(160, 100, 50)>;
+		};
+		
+		rgb_p4: set_underglow_to_preset4 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &rgb_ug RGB_COLOR_HSB(290, 100, 50)>;
+		};
+		
+		rgb_p5: set_underglow_to_preset5 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &rgb_ug RGB_COLOR_HSB(290, 100, 50)>;
 		};
     };
+
+
+
+/* Custom Device-tree */
+/*
+https://github.com/darknao/glove80-zmk-config
+https://github.com/darknao/glove80-zmk-config/blob/main/config/glove80.keymap#L37
+*/
+/* Empty underglow layer definition (for copy-paste)
+        mylayer {
+            bindings = <
+				______ ______ ______ ______ ______ ______                                ______ ______ ______ ______ ______ ______
+				______ ______ ______ ______ ______ ______                                ______ ______ ______ ______ ______ ______
+				______ ______ ______ ______ ______ ______                                ______ ______ ______ ______ ______ ______
+				______ ______ ______ ______ ______ ______ ______                  ______ ______ ______ ______ ______ ______ ______
+                              ______ ______ ______ ______ ______                  ______ ______ ______ ______ ______
+                >;
+            layer-id = <LAYER_Name>;
+        };
+*/
+/*
+#include <dt-bindings/zmk/rgb_colors.h>  // ?
+/ {
+    underglow-layer {
+        compatible  = "zmk,underglow-layer";
+
+        lower {
+            bindings = <
+                ______ ______ ______ ______ ______                                                          ______ ______ ______ ______ ______
+                PURPLE   PINK   PINK   PINK   PINK   PINK                                            ______   GOLD ORANGE ORANGE ORANGE    RED
+                PURPLE ______ ______ ORANGE ______ ______                                            ______ YELLOW YELLOW YELLOW ORANGE ______
+                PURPLE ______ ORANGE    RED ORANGE ______                                            ______ YELLOW YELLOW YELLOW ORANGE ______
+                  BLUE ______    RED    RED    RED ______ ______ ______ ______  ______ ______ ______ ______ YELLOW YELLOW YELLOW    RED   BLUE
+                ______ ______ ORANGE ORANGE ORANGE        ______  GREEN ______  ______ ______ ______        YELLOW YELLOW ORANGE    RED ______
+                >;
+            layer-id = <LAYER_Lower>;
+        };
+        raise {
+            bindings = <
+                ______ ______ ______ ______ ______                                                          ______ ______ ______ ______ ______
+                ______ ______ ______ ______ ______ ______                                              PINK   PINK   PINK   PINK   PINK ______
+                ______   BLUE ______   BLUE   BLUE   BLUE                                            ______ ______ ______ ______ ______   BLUE
+                ______   BLUE ______ ______ ______   BLUE                                            ______ ______ ______ ______ ______ ______
+                  BLUE ______ ______ ______ ______ ______ ______ ______ ______  ______ ______ ______ ______ ______ ______ ______ ______   BLUE
+                ______ ______ ______ ______ ______        ______ ______ ______  ______  GREEN ______        ______ ______ ______ ______ ______
+                >;
+            layer-id = <LAYER_Raise>;
+        };
+        gaming {
+            bindings = <
+                ______ ______ ______ ______ ______                                                          ______ ______ ______ ______ ______
+                ______ ______ ______ ______ ______ ______                                            ______ ______ ______ ______ ______ ______
+                ______ ______ ______ ______ ______ ______                                            ______ ______ ______ ______ ______ ______
+                ______   TEAL ______    RED ______ ______                                            ______ ______ ______ ______ ______ ______
+                ______   BLUE    RED    RED    RED ______ ORANGE   BLUE ______  ______ ______ ______ ______ ______ ______ ______ ______ ______
+                ______   BLUE ______ ______ ______           RED ______ ______  ______  GREEN ______        ______ ______ ______ ______ ______
+                >;
+            layer-id = <LAYER_Gaming>;
+        };
+    };
+};
+*/
+
 
     keymap {
         compatible = "zmk,keymap";
@@ -193,11 +288,11 @@
         NUMPAD {
             display-name = "NUMPAD";
             bindings = <
-&rgb_ug RGB_ON   &none  &none  &rgb_ug RGB_EFR &rgb_ug RGB_TOG &rgb_ug RGB_EFF                          &kp KP_PLUS      &none            &none            &none            &none  &none
-&none            &none  &none  &rgb_ug RGB_SAD &rgb_ug RGB_BRI &rgb_ug RGB_SAI                          &kp KP_SUBTRACT  &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &none  &kp BACKSPACE
-&rgb_ug RGB_OFF  &none  &none  &rgb_ug RGB_HUD &rgb_ug RGB_BRD &rgb_ug RGB_HUI                          &kp KP_DIVIDE    &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &none  &none
-&rgb_w           &none  &none  &none           &none           &none            &trans       &trans     &kp KP_ASTERISK  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &none  &none
-						&rgb_r &rgb_g          &rgb_b          &kp SPACE        &kp ENTER    &kp ENTER  &kp SPACE        &kp KP_NUMBER_0  &kp KP_EQUAL     &kp KP_DOT
+&rgb_ug RGB_ON   &none  &none   &rgb_ug RGB_EFR &rgb_ug RGB_TOG &rgb_ug RGB_EFF                          &kp KP_PLUS      &none            &none            &none            &none  &none
+&none            &none  &none   &rgb_ug RGB_SAD &rgb_ug RGB_BRI &rgb_ug RGB_SAI                          &kp KP_SUBTRACT  &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &none  &kp BACKSPACE
+&rgb_ug RGB_OFF  &none  &none   &rgb_ug RGB_HUD &rgb_ug RGB_BRD &rgb_ug RGB_HUI                          &kp KP_DIVIDE    &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &none  &none
+&rgb_w           &none  &none   &none           &none           &none            &trans       &trans     &kp KP_ASTERISK  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &none  &none
+						&rgb_p1 &rgb_p2         &rgb_p3         &rgb_p4          &rgb_p5      &kp ENTER  &kp SPACE        &kp KP_NUMBER_0  &kp KP_EQUAL     &kp KP_DOT
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_AC_SCROLL_UP C_AC_SCROLL_DOWN>;
         };
