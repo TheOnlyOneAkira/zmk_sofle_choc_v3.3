@@ -167,7 +167,7 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&macro_tap &rgb_ug RGB_COLOR_HSB(290, 100, 50)>;
+                = <&macro_tap &rgb_ug RGB_COLOR_HSB(10, 100, 10)>;
 		};
     };
 
