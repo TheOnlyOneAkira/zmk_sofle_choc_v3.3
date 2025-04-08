@@ -253,7 +253,7 @@ https://github.com/darknao/glove80-zmk-config/blob/main/config/glove80.keymap#L3
             display-name = "SETTINGS";
 			bindings = <
 &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &none                     &none   &none           &none              &none       &none   &none
-&trans        &none         &none         &none         &none         &none                     &none   &none           &kp C_VOL_UP       &none       &none   &none
+&bt BT_DISC 0 &bt BT_DISC 1 &bt BT_DISC 2 &bt BT_DISC 3 &bt BT_DISC 4 &none                     &none   &none           &kp C_VOL_UP       &none       &none   &none
 &trans        &none         &none         &none         &none         &none                     &none   &kp C_PREVIOUS  &kp C_VOLUME_DOWN  &kp C_NEXT  &none   &none
 &bt BT_CLR    &none         &none         &none         &none         &none   &none     &none   &none   &none           &none              &none       &trans  &trans
                             &trans        &trans        &trans        &trans  &trans    &trans  &trans  &trans          &trans
