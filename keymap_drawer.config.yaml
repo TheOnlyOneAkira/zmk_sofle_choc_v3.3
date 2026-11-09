@@ -168,6 +168,16 @@ parse_config:
     "&rgb_ug RGB_SAD": {t: "Satur. −", s: "RGB"}
     "&rgb_ug RGB_BRI": {t: "Lumin. +", s: "RGB"}
     "&rgb_ug RGB_BRD": {t: "Lumin. −", s: "RGB"}
+    "&anim ANIM_NXT": {t: "Anim +", s: "écran"}
+    "&anim ANIM_PRV": {t: "Anim −", s: "écran"}
+    "&anim ANIM_TOG": {t: "Anim on/off", s: "écran"}
+    "&anim ANIM_ON": {t: "Anim on", s: "écran"}
+    "&anim ANIM_OFF": {t: "Anim off", s: "écran"}
+    "&anim ANIM_SEL 0": {t: "crystal", s: "écran"}
+    "&anim ANIM_SEL 1": {t: "rain", s: "écran"}
+    "&anim ANIM_SEL 2": {t: "waves", s: "écran"}
+    "&anim ANIM_SEL 3": {t: "stars", s: "écran"}
+    "&anim ANIM_SEL 4": {t: "cube", s: "écran"}
     "&rgb_w": {t: "Blanc", s: "RGB"}
     "&rgb_r": {t: "Rouge", s: "RGB"}
     "&rgb_g": {t: "Vert", s: "RGB"}

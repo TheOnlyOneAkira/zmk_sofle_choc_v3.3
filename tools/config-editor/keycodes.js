@@ -57,5 +57,15 @@
 
   const EXT_POWER_ACTIONS = [['EP_TOG', 'Basculer'], ['EP_ON', 'Allumer'], ['EP_OFF', 'Éteindre']];
 
-  root.Keycodes = { KEYCODES, FALLBACK_LABELS, MODIFIERS, HOLD_MODS, BT_ACTIONS, RGB_ACTIONS, EXT_POWER_ACTIONS };
+  // &anim (fork nice-view-gem) : [action, libellé, a besoin d'un numéro]
+  const ANIM_ACTIONS = [
+    ['ANIM_NXT', 'Animation suivante', false],
+    ['ANIM_PRV', 'Animation précédente', false],
+    ['ANIM_SEL', "Choisir l'animation n°", true],
+    ['ANIM_TOG', 'Animée / image fixe', false],
+    ['ANIM_ON', 'Animée', false],
+    ['ANIM_OFF', 'Image fixe', false],
+  ];
+
+  root.Keycodes = { KEYCODES, FALLBACK_LABELS, MODIFIERS, HOLD_MODS, BT_ACTIONS, RGB_ACTIONS, EXT_POWER_ACTIONS, ANIM_ACTIONS };
 })(typeof window !== 'undefined' ? window : globalThis);

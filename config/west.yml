@@ -14,8 +14,9 @@ manifest:
       remote: theonlyoneakira
       revision: sofle-layer-colors
       import: app/west.yml
-    - name: nice-view-gem #new entry
-      remote: m165437 #new entry
-      revision: main #new entry
+    # Fork de nice-view-gem : plusieurs animations + behavior &anim pour en changer
+    - name: nice-view-gem
+      remote: theonlyoneakira
+      revision: sofle-animations
   self:
     path: config

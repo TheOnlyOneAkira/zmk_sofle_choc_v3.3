@@ -12,6 +12,7 @@
 #include <dt-bindings/zmk/outputs.h>  // https://zmk.dev/docs/keymaps/behaviors/outputs
 #include <dt-bindings/led/led.h>  // https://zmk.dev/docs/features/underglow
 #include <dt-bindings/zmk/rgb_layer_colors.h>  // fork : effet "couleurs par layer" (RGB_TRANS)
+#include <dt-bindings/zmk/nice_view_anim.h>  // fork nice-view-gem : &anim (animations de l'écran)
 #include <dt-bindings/zmk/pointing.h>  // https://zmk.dev/docs/keymaps/behaviors/mouse-emulation (&msc, MOVE_Y)
 
 &pinctrl {
@@ -82,11 +83,11 @@
 
 // &led_strip { chain-length = <29>; };
 &sensors { triggers-per-rotation = <30>; };
-
 // Encodeurs 30 crans / 15 impulsions : 2 transitions par cran -> 60 par tour
 // (le shield déclare 80, ce qui faisait ignorer un cran sur deux par moments).
 &left_encoder  { steps = <60>; };
 &right_encoder { steps = <60>; };
+
 / {
     behaviors {
         // Encodeur droit = molette de souris : 1 cran d'encodeur -> 1 cran de molette.
@@ -100,6 +101,11 @@
             tap-ms = <24>;
         };
 
+        // Animations de l'écran droit : ANIM_NXT, ANIM_PRV, ANIM_SEL n, ANIM_TOG (fixe/animé)
+        anim: nv_anim {
+            compatible = "zmk,behavior-nice-view-anim";
+            #binding-cells = <2>;
+        };
         TD: TD {
             compatible = "zmk,behavior-hold-tap";
             label = "TD";

@@ -1181,9 +1181,17 @@ rect.encoder { fill: #fde9c4; stroke: #c98a1b; stroke-width: 1.5; }
 </g>
 <g transform="translate(87, 65)" class="key keypos-1">
 <rect rx="6" ry="6" x="-27" y="-27" width="54" height="54" class="key"/>
+<text x="0" y="0" class="key tap">
+<tspan x="0" dy="-0.3em">Anim</tspan><tspan x="0" dy="1.2em">−</tspan>
+</text>
+<text x="0" y="-25" class="key shifted">écran</text>
 </g>
 <g transform="translate(145, 36)" class="key keypos-2">
 <rect rx="6" ry="6" x="-27" y="-27" width="54" height="54" class="key"/>
+<text x="0" y="0" class="key tap">
+<tspan x="0" dy="-0.3em">Anim</tspan><tspan x="0" dy="1.2em">+</tspan>
+</text>
+<text x="0" y="-25" class="key shifted">écran</text>
 </g>
 <g transform="translate(203, 29)" class="key keypos-3">
 <rect rx="6" ry="6" x="-27" y="-27" width="54" height="54" class="key"/>
@@ -1228,6 +1236,10 @@ rect.encoder { fill: #fde9c4; stroke: #c98a1b; stroke-width: 1.5; }
 </g>
 <g transform="translate(87, 123)" class="key keypos-13">
 <rect rx="6" ry="6" x="-27" y="-27" width="54" height="54" class="key"/>
+<text x="0" y="0" class="key tap">
+<tspan x="0" dy="-0.3em">Anim</tspan><tspan x="0" dy="1.2em">on/off</tspan>
+</text>
+<text x="0" y="-25" class="key shifted">écran</text>
 </g>
 <g transform="translate(145, 94)" class="key keypos-14">
 <rect rx="6" ry="6" x="-27" y="-27" width="54" height="54" class="key"/>

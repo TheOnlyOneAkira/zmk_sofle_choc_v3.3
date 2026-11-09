@@ -364,8 +364,10 @@ layers:
   NUMPAD:
   - t: 'On'
     s: RGB
-  - ''
-  - ''
+  - t: Anim −
+    s: écran
+  - t: Anim +
+    s: écran
   - t: Effet −
     s: RGB
   - t: On/Off
@@ -379,7 +381,8 @@ layers:
   - ''
   - ''
   - type: held
-  - ''
+  - t: Anim on/off
+    s: écran
   - ''
   - t: Satur. −
     s: RGB

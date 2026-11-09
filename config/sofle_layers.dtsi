@@ -58,10 +58,10 @@
         NUMPAD {
             display-name = "NUMPAD";
             bindings = <
-&rgb_ug RGB_ON   &none  &none   &rgb_ug RGB_EFR &rgb_ug RGB_TOG &rgb_ug RGB_EFF                          &kp KP_PLUS      &none            &none            &none            &none  &none
-&none            &none  &none   &rgb_ug RGB_SAD &rgb_ug RGB_BRI &rgb_ug RGB_SAI                          &kp KP_SUBTRACT  &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &none  &kp BACKSPACE
-&rgb_ug RGB_OFF  &none  &none   &rgb_ug RGB_HUD &rgb_ug RGB_BRD &rgb_ug RGB_HUI                          &kp KP_DIVIDE    &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &none  &none
-&rgb_w           &none  &none   &none           &none           &none            &trans       &trans     &kp KP_ASTERISK  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &none  &none
+&rgb_ug RGB_ON   &anim ANIM_PRV  &anim ANIM_NXT  &rgb_ug RGB_EFR &rgb_ug RGB_TOG &rgb_ug RGB_EFF                          &kp KP_PLUS      &none            &none            &none            &none  &none
+&none            &anim ANIM_TOG  &none           &rgb_ug RGB_SAD &rgb_ug RGB_BRI &rgb_ug RGB_SAI                          &kp KP_SUBTRACT  &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &none  &kp BACKSPACE
+&rgb_ug RGB_OFF  &none           &none           &rgb_ug RGB_HUD &rgb_ug RGB_BRD &rgb_ug RGB_HUI                          &kp KP_DIVIDE    &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &none  &none
+&rgb_w           &none           &none           &none           &none           &none            &trans       &trans     &kp KP_ASTERISK  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &none  &none
 						&rgb_p1 &rgb_p2         &rgb_p3         &rgb_p4          &rgb_p5      &kp ENTER  &kp SPACE        &kp KP_NUMBER_0  &kp KP_EQUAL     &kp KP_DOT
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &scroll_enc>;

@@ -539,6 +539,7 @@
       ['mt', 'Mod-tap : maintien = modificateur, tap = touche (&mt)'],
     ];
     for (const b of Object.values(S.keymap.behaviors)) {
+      if (isAnimBehavior(b.name)) continue; // type dédié « anim » plus bas
       let desc = b.compatible.replace(/^zmk,behavior-/, '');
       if (/hold-tap/.test(b.compatible) && b.bindings.length >= 2) {
         desc = `maintien = ${b.bindings[0]}, tap = ${b.bindings[1]}`;
@@ -553,6 +554,7 @@
       ['bt', 'Bluetooth (&bt)'],
       ['rgb_ug', 'Éclairage RGB (&rgb_ug)'],
       ['ext_power', 'Alimentation externe (&ext_power)'],
+      ...(animBehaviorName() ? [['anim', `Animation écran (&${animBehaviorName()})`]] : []),
       ['bootloader', 'Bootloader (&bootloader)'],
       ['sys_reset', 'Reset (&sys_reset)'],
       ['trans', 'Transparent (&trans)'],
@@ -562,11 +564,21 @@
     return types;
   }
 
+  // Behavior &anim du fork nice-view-gem (déclaré dans sofle.keymap)
+  function isAnimBehavior(name) {
+    const b = S.keymap.behaviors[name];
+    return !!b && /nice-view-anim/.test(b.compatible);
+  }
+  function animBehaviorName() {
+    return Object.keys(S.keymap.behaviors).find(isAnimBehavior) || null;
+  }
+
   function detectType(binding) {
     const b = C.normBinding(binding);
     const [beh] = b.split(' ');
     const name = beh.replace(/^&/, '');
     if (['kp', 'mo', 'tog', 'to', 'sl', 'lt', 'mt', 'bt', 'rgb_ug', 'ext_power', 'bootloader', 'sys_reset', 'trans', 'none'].includes(name)) return name;
+    if (isAnimBehavior(name)) return 'anim';
     if (S.keymap.behaviors[name]) return 'custom:' + name;
     return 'raw';
   }
@@ -580,6 +592,7 @@
       case 'bt': return '&bt BT_SEL 0';
       case 'rgb_ug': return '&rgb_ug RGB_TOG';
       case 'ext_power': return '&ext_power EP_TOG';
+      case 'anim': return `&${animBehaviorName()} ANIM_NXT`;
       case 'bootloader': case 'sys_reset': case 'trans': case 'none': return '&' + type;
       default: break;
     }
@@ -703,6 +716,16 @@
     }
     if (type === 'rgb_ug') return [row('Action', simpleSelect(K.RGB_ACTIONS, p[0], (v) => set([v])))];
     if (type === 'ext_power') return [row('Action', simpleSelect(K.EXT_POWER_ACTIONS, p[0], (v) => set([v])))];
+    if (type === 'anim') {
+      const action = K.ANIM_ACTIONS.find(([a]) => a === p[0]);
+      return [row('Action', simpleSelect(K.ANIM_ACTIONS.map(([a, l]) => [a, l]), p[0], (v) => {
+        const a = K.ANIM_ACTIONS.find(([x]) => x === v);
+        set(a && a[2] ? [v, cur()[2] || '0'] : [v]);
+        renderPanel();
+      })),
+      action && action[2] ? row('Numéro', h('input', { type: 'number', min: 0, max: 50, value: p[1] || '0', onchange: (e) => set([cur()[1], String(e.target.value)]) })) : null,
+      h('p', { class: 'hint' }, 'Ordre des animations : fichier assets/anim_registry.h du fork nice-view-gem (0 = première).')];
+    }
     if (type.startsWith('custom:')) {
       const b = S.keymap.behaviors[type.slice(7)];
       if (!b.cells) return [h('p', { class: 'hint' }, 'Behavior sans paramètre : défini dans sofle.keymap.')];
@@ -900,6 +923,9 @@
       ok(lab('&kp LS(Q)').t === 'Maj+A', `&kp LS(Q) -> ${lab('&kp LS(Q)').t}`);
       ok(lab('&mo 3').t === layerNames()[3], `&mo 3 -> ${lab('&mo 3').t}`);
       ok(lab('&TTH__LGUI_SYMBL').t === 'Win', `&TTH__LGUI_SYMBL -> ${lab('&TTH__LGUI_SYMBL').t}`);
+      ok(animBehaviorName() === 'anim' && detectType('&anim ANIM_NXT') === 'anim', `&anim détecté (${animBehaviorName()})`);
+      ok(lab('&anim ANIM_NXT').t === 'Anim +', `&anim ANIM_NXT -> ${lab('&anim ANIM_NXT').t}`);
+      ok(lab('&anim ANIM_SEL 7').t === 'Anim 7', `&anim ANIM_SEL 7 -> ${lab('&anim ANIM_SEL 7').t}`);
 
       const defs = colorDefines();
       const base1 = C.resolveColor(S.origColors[0][1], defs);

@@ -405,6 +405,10 @@
         const tap = label(`${custom.bindings[1]} ${params[1] || ''}`);
         return { t: tap.t, s: tap.s, h: hold.t };
       }
+      if (custom && /nice-view-anim/.test(custom.compatible)) {
+        const p = (params[0] || '').replace(/^ANIM_/, '');
+        return { t: p === 'SEL' ? `Anim ${params[1] || ''}`.trim() : `Anim ${p}`, s: 'écran' };
+      }
       if (custom) return { t: name, type: 'custom' };
       return { t: b };
     }
