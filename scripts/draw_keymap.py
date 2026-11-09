@@ -76,6 +76,22 @@ def strip_comments(text: str) -> str:
     return re.sub(r"//[^\n]*", "", text)
 
 
+def read_with_includes(path: Path, seen: set[Path] | None = None) -> str:
+    """Lit un fichier en remplaçant les #include "..." locaux par leur contenu."""
+    seen = set() if seen is None else seen
+    path = path.resolve()
+    if path in seen:
+        return ""
+    seen.add(path)
+
+    def inline(m: re.Match) -> str:
+        inc = path.parent / m.group(1)
+        return read_with_includes(inc, seen) if inc.is_file() else m.group(0)
+
+    text = path.read_text(encoding="utf-8")
+    return re.sub(r'^[ \t]*#include\s+"([^"]+)"', inline, text, flags=re.M)
+
+
 def parse_sensor_bindings(keymap_text: str) -> list[list[tuple[str, str]] | None]:
     """Retourne, pour chaque layer (dans l'ordre), la liste (CW, CCW) par encodeur."""
     text = strip_comments(keymap_text)
@@ -185,7 +201,7 @@ def main() -> None:
     run_keymap_drawer("-c", str(args.config), "parse", "-z", str(args.keymap), "-o", str(yaml_path))
 
     data = yaml.safe_load(yaml_path.read_text(encoding="utf-8"))
-    add_encoders(data, parse_sensor_bindings(args.keymap.read_text(encoding="utf-8")))
+    add_encoders(data, parse_sensor_bindings(read_with_includes(args.keymap)))
     yaml_path.write_text(yaml.safe_dump(data, allow_unicode=True, sort_keys=False), encoding="utf-8")
 
     run_keymap_drawer("-c", str(args.config), "draw", str(yaml_path), "-o", str(svg_path))
