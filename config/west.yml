@@ -4,12 +4,15 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: m165437 #new entry
       url-base: https://github.com/M165437 #new entry
+    - name: theonlyoneakira
+      url-base: https://github.com/TheOnlyOneAkira
     # Additional modules containing boards/shields/custom code can be listed here as well
     # See https://docs.zephyrproject.org/3.2.0/develop/west/manifest.html#projects
   projects:
+    # Fork de ZMK : branche basée sur zmkfirmware/zmk main + effet "couleurs par layer"
     - name: zmk
-      remote: zmkfirmware
-      revision: main
+      remote: theonlyoneakira
+      revision: sofle-layer-colors
       import: app/west.yml
     - name: nice-view-gem #new entry
       remote: m165437 #new entry

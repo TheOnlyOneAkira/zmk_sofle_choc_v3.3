@@ -1,0 +1,25 @@
+/*
+ * Moitié droite (périphérique) : correspondance LED -> touche pour l'effet
+ * "couleurs par layer" (voir underglow_layer_colors dans sofle.keymap).
+ */
+
+/ {
+    chosen {
+        zmk,underglow-key-positions = &underglow_key_positions;
+    };
+
+    // 29 LED (une par touche), même ordre que la gauche, en miroir.
+    // Chaque valeur est la position dans le keymap de la touche au-dessus
+    // de la LED. Le clic de l'encodeur (position 43) n'a pas de LED.
+    underglow_key_positions: underglow_key_positions {
+        compatible = "zmk,underglow-key-positions";
+        key-positions = <
+             6 18 30 44 55 56 57      // colonne Y haut->bas, pouces ENTER, SPACE, &mo 2
+            45 31 19  7               // colonne U bas->haut
+             8 20 32 46 58            // colonne I haut->bas, pouce RCTRL/SHORTCUTS
+            59 47 33 21  9            // pouce RALT, colonne O bas->haut
+            10 22 34 48               // colonne P haut->bas
+            49 35 23 11               // colonne GRAVE bas->haut
+        >;
+    };
+};

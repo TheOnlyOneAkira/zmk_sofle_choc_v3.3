@@ -11,6 +11,7 @@
 #include <dt-bindings/zmk/ext_power.h>  // https://zmk.dev/docs/keymaps/behaviors/power
 #include <dt-bindings/zmk/outputs.h>  // https://zmk.dev/docs/keymaps/behaviors/outputs
 #include <dt-bindings/led/led.h>  // https://zmk.dev/docs/features/underglow
+#include <dt-bindings/zmk/rgb_layer_colors.h>  // fork : effet "couleurs par layer" (RGB_TRANS)
 
 &pinctrl {
     spi3_default: spi3_default {
@@ -173,65 +174,120 @@
 
 
 
-/* Custom Device-tree */
 /*
-https://github.com/darknao/glove80-zmk-config
-https://github.com/darknao/glove80-zmk-config/blob/main/config/glove80.keymap#L37
-*/
-/* Empty underglow layer definition (for copy-paste)
-        mylayer {
-            bindings = <
-				______ ______ ______ ______ ______ ______                                ______ ______ ______ ______ ______ ______
-				______ ______ ______ ______ ______ ______                                ______ ______ ______ ______ ______ ______
-				______ ______ ______ ______ ______ ______                                ______ ______ ______ ______ ______ ______
-				______ ______ ______ ______ ______ ______ ______                  ______ ______ ______ ______ ______ ______ ______
-                              ______ ______ ______ ______ ______                  ______ ______ ______ ______ ______
-                >;
-            layer-id = <LAYER_Name>;
-        };
-*/
-/*
-#include <dt-bindings/zmk/rgb_colors.h>  // ?
-/ {
-    underglow-layer {
-        compatible  = "zmk,underglow-layer";
+ * Couleurs par touche pour l'effet "couleurs par layer" (effet 4, fork ZMK
+ * TheOnlyOneAkira/zmk branche sofle-layer-colors).
+ * - Même disposition que les bindings du keymap (60 positions ; les deux
+ *   emplacements des clics d'encodeur n'ont pas de LED, la valeur est ignorée).
+ * - Le layer actif le plus haut qui définit une couleur l'emporte ;
+ *   ___ (RGB_TRANS) laisse voir la couleur du layer en dessous.
+ * - Une touche sans couleur sur aucun layer actif reste éteinte.
+ * - Couleurs en 0xRRGGBB ; la luminosité globale (RGB_BRI / RGB_BRD) s'applique.
+ *   La teinte (RGB_HUI, &rgb_p1...) n'a pas d'effet sur cet effet.
+ */
+#define ___ RGB_TRANS
+#define OFF 0x000000
+#define WHT 0xFFFFFF
+#define RED 0xFF0000
+#define GRN 0x00FF00
+#define BLU 0x0000FF
+#define CYN 0x00FFFF
+#define PUR 0x8000FF
+#define ORG 0xFF6000
+#define YEL 0xFFC000
+// Aperçu des presets &rgb_p1 ... &rgb_p5 (layer NUMPAD)
+#define P1C 0xFF2A00
+#define P2C 0xFFD400
+#define P3C 0x00FFAA
+#define P4C 0xD400FF
+#define P5C 0x330800
 
-        lower {
-            bindings = <
-                ______ ______ ______ ______ ______                                                          ______ ______ ______ ______ ______
-                PURPLE   PINK   PINK   PINK   PINK   PINK                                            ______   GOLD ORANGE ORANGE ORANGE    RED
-                PURPLE ______ ______ ORANGE ______ ______                                            ______ YELLOW YELLOW YELLOW ORANGE ______
-                PURPLE ______ ORANGE    RED ORANGE ______                                            ______ YELLOW YELLOW YELLOW ORANGE ______
-                  BLUE ______    RED    RED    RED ______ ______ ______ ______  ______ ______ ______ ______ YELLOW YELLOW YELLOW    RED   BLUE
-                ______ ______ ORANGE ORANGE ORANGE        ______  GREEN ______  ______ ______ ______        YELLOW YELLOW ORANGE    RED ______
-                >;
-            layer-id = <LAYER_Lower>;
+    underglow_layer_colors {
+        compatible = "zmk,underglow-layer-colors";
+
+        base_colors {
+            layer = <BASE>;
+            colors = <
+PUR CYN CYN CYN CYN CYN                 CYN CYN CYN CYN CYN PUR
+PUR WHT WHT WHT WHT WHT                 WHT WHT WHT WHT WHT PUR
+PUR WHT WHT WHT WHT WHT                 WHT WHT WHT WHT WHT PUR
+PUR WHT WHT WHT WHT WHT ___         ___ WHT WHT WHT WHT WHT PUR
+        PUR ORG ORG BLU BLU         BLU BLU ORG ORG PUR
+            >;
         };
-        raise {
-            bindings = <
-                ______ ______ ______ ______ ______                                                          ______ ______ ______ ______ ______
-                ______ ______ ______ ______ ______ ______                                              PINK   PINK   PINK   PINK   PINK ______
-                ______   BLUE ______   BLUE   BLUE   BLUE                                            ______ ______ ______ ______ ______   BLUE
-                ______   BLUE ______ ______ ______   BLUE                                            ______ ______ ______ ______ ______ ______
-                  BLUE ______ ______ ______ ______ ______ ______ ______ ______  ______ ______ ______ ______ ______ ______ ______ ______   BLUE
-                ______ ______ ______ ______ ______        ______ ______ ______  ______  GREEN ______        ______ ______ ______ ______ ______
-                >;
-            layer-id = <LAYER_Raise>;
+
+        // Bleu : sélection BT, cyan : déconnexion BT, rouge : BT_CLR, blanc : médias
+        settings_colors {
+            layer = <SETTINGS>;
+            colors = <
+BLU BLU BLU BLU BLU OFF                 OFF OFF OFF OFF OFF OFF
+CYN CYN CYN CYN CYN OFF                 OFF OFF WHT OFF OFF OFF
+___ OFF OFF OFF OFF OFF                 OFF WHT WHT WHT OFF OFF
+RED OFF OFF OFF OFF OFF OFF         OFF OFF OFF OFF OFF ___ ___
+        ___ ___ ___ ___ ___         ___ ___ ___ ___ ___
+            >;
         };
-        gaming {
-            bindings = <
-                ______ ______ ______ ______ ______                                                          ______ ______ ______ ______ ______
-                ______ ______ ______ ______ ______ ______                                            ______ ______ ______ ______ ______ ______
-                ______ ______ ______ ______ ______ ______                                            ______ ______ ______ ______ ______ ______
-                ______   TEAL ______    RED ______ ______                                            ______ ______ ______ ______ ______ ______
-                ______   BLUE    RED    RED    RED ______ ORANGE   BLUE ______  ______ ______ ______ ______ ______ ______ ______ ______ ______
-                ______   BLUE ______ ______ ______           RED ______ ______  ______  GREEN ______        ______ ______ ______ ______ ______
-                >;
-            layer-id = <LAYER_Gaming>;
+
+        // Vert : F1-F12 et symboles, violet : accès au layer EXTRAS
+        symbols_colors {
+            layer = <SYMBOLS>;
+            colors = <
+___ GRN GRN GRN GRN GRN                 GRN GRN GRN GRN GRN GRN
+___ OFF OFF OFF OFF OFF                 GRN GRN GRN GRN GRN GRN
+___ OFF OFF OFF OFF OFF                 GRN GRN GRN GRN GRN ___
+___ OFF OFF GRN GRN GRN ___         ___ GRN GRN GRN GRN GRN ___
+        OFF OFF PUR OFF ___         ___ ___ ___ ___ ___
+            >;
+        };
+
+        // Jaune : raccourcis et navigation, blanc : flèches, violet : accès au layer EXTRAS
+        shortcuts_colors {
+            layer = <SHORTCUTS>;
+            colors = <
+___ ___ ___ ___ ___ ___                 ___ ___ ___ ___ ___ YEL
+___ YEL YEL YEL OFF YEL                 YEL YEL WHT YEL ___ YEL
+___ OFF OFF OFF OFF OFF                 YEL WHT WHT WHT YEL YEL
+OFF YEL YEL YEL YEL OFF ___         ___ OFF YEL OFF YEL YEL YEL
+        ___ ___ ___ ___ ___         ___ PUR ___ ___ ___
+            >;
+        };
+
+        // Cyan : réglages RGB, presets dans leur couleur, blanc : chiffres, orange : opérateurs
+        numpad_colors {
+            layer = <NUMPAD>;
+            colors = <
+CYN OFF OFF CYN CYN CYN                 ORG OFF OFF OFF OFF OFF
+OFF OFF OFF CYN CYN CYN                 ORG WHT WHT WHT OFF ORG
+CYN OFF OFF CYN CYN CYN                 ORG WHT WHT WHT OFF OFF
+WHT OFF OFF OFF OFF OFF ___         ___ ORG WHT WHT WHT OFF OFF
+        P1C P2C P3C P4C P5C         ORG ORG WHT ORG ORG
+            >;
+        };
+
+        // Violet : changement de bureau et ext_power, rouge : accès au layer BOARD
+        extras_colors {
+            layer = <EXTRAS>;
+            colors = <
+RED OFF OFF OFF OFF OFF                 OFF OFF OFF OFF OFF RED
+OFF OFF OFF OFF OFF OFF                 OFF OFF OFF OFF OFF OFF
+OFF OFF OFF OFF OFF OFF                 OFF PUR OFF PUR OFF OFF
+OFF OFF OFF OFF OFF OFF OFF         OFF OFF OFF OFF OFF OFF OFF
+        OFF OFF OFF OFF PUR         PUR OFF OFF OFF OFF
+            >;
+        };
+
+        // Rouge : bootloader, orange : reset
+        board_colors {
+            layer = <BOARD>;
+            colors = <
+OFF OFF OFF OFF OFF RED                 RED OFF OFF OFF OFF OFF
+OFF OFF OFF OFF OFF ORG                 ORG OFF OFF OFF OFF OFF
+OFF OFF OFF OFF OFF OFF                 OFF OFF OFF OFF OFF OFF
+OFF OFF OFF OFF OFF OFF OFF         OFF OFF OFF OFF OFF OFF OFF
+        OFF OFF OFF OFF OFF         OFF OFF OFF OFF OFF
+            >;
         };
     };
-};
-*/
 
 
     keymap {
