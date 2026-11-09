@@ -1,0 +1,589 @@
+layout:
+  zmk_keyboard: sofle
+layers:
+  BASE:
+  - Échap
+  - t: '&'
+    s: '1'
+  - t: é
+    s: '2'
+  - t: '"'
+    s: '3'
+  - t: ''''
+    s: '4'
+  - t: (
+    h: SETTINGS
+    s: '5'
+  - t: '-'
+    h: SETTINGS
+    s: '6'
+  - t: è
+    s: '7'
+  - t: _
+    s: '8'
+  - t: ç
+    s: '9'
+  - t: à
+    s: '0'
+  - ²
+  - t: Tab ⇥
+    h: NUMPAD
+  - A
+  - Z
+  - E
+  - R
+  - T
+  - Y
+  - U
+  - I
+  - O
+  - P
+  - ⌫
+  - ⇧ Maj
+  - Q
+  - S
+  - D
+  - F
+  - G
+  - H
+  - J
+  - K
+  - L
+  - M
+  - t: ù
+    s: '%'
+  - Ctrl
+  - W
+  - X
+  - C
+  - V
+  - B
+  - t: Play/Pause
+    s: Vol
+    h: ↺− ↻+
+    type: encoder
+  - t: Muet
+    s: Défil
+    h: ↺↓ ↻↑
+    type: encoder
+  - N
+  - t: ','
+    s: '?'
+  - t: ;
+    s: .
+  - t: ':'
+    s: /
+  - t: '!'
+    s: §
+  - ⇧ Maj
+  - Alt
+  - t: Win
+    h: 2× SYMBOLS
+  - SHORTCUT
+  - Espace
+  - Entrée ⏎
+  - Entrée ⏎
+  - Espace
+  - SYMBOLS
+  - t: Ctrl
+    h: 2× SHORTCUT
+  - AltGr
+  SETTINGS:
+  - t: BT 0
+    s: choisir
+  - t: BT 1
+    s: choisir
+  - t: BT 2
+    s: choisir
+  - t: BT 3
+    s: choisir
+  - t: BT 4
+    s: choisir
+  - type: held
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - t: BT 0
+    s: déconnecter
+  - t: BT 1
+    s: déconnecter
+  - t: BT 2
+    s: déconnecter
+  - t: BT 3
+    s: déconnecter
+  - t: BT 4
+    s: déconnecter
+  - ''
+  - ''
+  - ''
+  - Vol +
+  - ''
+  - ''
+  - ''
+  - t: ▽
+    type: trans
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ⏮ Préc.
+  - Vol −
+  - Suiv. ⏭
+  - ''
+  - ''
+  - t: BT effacer
+    s: actif
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - t: ''
+    s: Vol
+    h: ↺− ↻+
+    type: encoder
+  - t: ''
+    s: Défil
+    h: ↺↓ ↻↑
+    type: encoder
+  - ''
+  - ''
+  - ''
+  - ''
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  SYMBOLS:
+  - t: ▽
+    type: trans
+  - F1
+  - F2
+  - F3
+  - F4
+  - F5
+  - F6
+  - F7
+  - F8
+  - F9
+  - F10
+  - F11
+  - t: ▽
+    type: trans
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - t: (
+    s: '5'
+  - '['
+  - '{'
+  - ¨
+  - €
+  - F12
+  - t: ▽
+    type: trans
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - t: )
+    s: °
+  - ']'
+  - '}'
+  - t: ^
+    s: ¨
+  - t: $
+    s: £
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - ''
+  - ''
+  - /
+  - '*'
+  - t: '='
+    s: +
+  - t: ▽
+    type: trans
+    s: Vol
+    h: ↺− ↻+
+  - t: ▽
+    type: trans
+    s: Défil
+    h: ↺↓ ↻↑
+  - t: '='
+    s: +
+  - +
+  - '-'
+  - t: '*'
+    s: µ
+  - £
+  - t: ▽
+    type: trans
+  - ''
+  - ''
+  - EXTRAS
+  - ''
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - type: held
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  SHORTCUT:
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - Suppr
+  - t: ▽
+    type: trans
+  - Inser
+  - Impr. écran
+  - Menu
+  - ''
+  - t: Commenter
+    s: Ctrl+/
+  - Page ↑
+  - t: Mot ←
+    s: Ctrl+←
+  - ↑
+  - t: Mot →
+    s: Ctrl+→
+  - t: ▽
+    type: trans
+  - ⌫
+  - t: ▽
+    type: trans
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - Page ↓
+  - ←
+  - ↓
+  - →
+  - Suppr
+  - ⌫
+  - ''
+  - t: <
+    s: '>'
+  - t: Couper
+    s: Ctrl+X
+  - t: Copier
+    s: Ctrl+C
+  - t: Coller
+    s: Ctrl+V
+  - ''
+  - t: ▽
+    type: trans
+    s: Vol
+    h: ↺− ↻+
+  - t: ▽
+    type: trans
+    s: Défil
+    h: ↺↓ ↻↑
+  - ''
+  - Début
+  - ''
+  - Fin
+  - t: <
+    s: '>'
+  - Verr. Maj
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - type: held
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - EXTRAS
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  NUMPAD:
+  - t: 'On'
+    s: RGB
+  - ''
+  - ''
+  - t: Effet −
+    s: RGB
+  - t: On/Off
+    s: RGB
+  - t: Effet +
+    s: RGB
+  - +
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - type: held
+  - ''
+  - ''
+  - t: Satur. −
+    s: RGB
+  - t: Lumin. +
+    s: RGB
+  - t: Satur. +
+    s: RGB
+  - '-'
+  - '7'
+  - '8'
+  - '9'
+  - ''
+  - ⌫
+  - t: 'Off'
+    s: RGB
+  - ''
+  - ''
+  - t: Teinte −
+    s: RGB
+  - t: Lumin. −
+    s: RGB
+  - t: Teinte +
+    s: RGB
+  - /
+  - '4'
+  - '5'
+  - '6'
+  - ''
+  - ''
+  - t: Blanc
+    s: RGB
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - t: ▽
+    type: trans
+    s: Vol
+    h: ↺− ↻+
+  - t: ▽
+    type: trans
+    s: Défil
+    h: ↺↓ ↻↑
+  - '*'
+  - '1'
+  - '2'
+  - '3'
+  - ''
+  - ''
+  - t: Preset 1
+    s: RGB
+  - t: Preset 2
+    s: RGB
+  - t: Preset 3
+    s: RGB
+  - t: Preset 4
+    s: RGB
+  - t: Preset 5
+    s: RGB
+  - Entrée ⏎
+  - Espace
+  - '0'
+  - '='
+  - .
+  EXTRAS:
+  - BOARD
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - BOARD
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - t: Bureau ←
+    s: Ctrl+Win+←
+  - ''
+  - t: Bureau →
+    s: Ctrl+Win+→
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - t: ''
+    s: Vol
+    h: ↺− ↻+
+    type: encoder
+  - t: ''
+    s: Défil
+    h: ↺↓ ↻↑
+    type: encoder
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - type: held
+  - ''
+  - t: On/Off
+    s: Alim. ext.
+  - t: On/Off
+    s: Alim. ext.
+  - ''
+  - type: held
+  - ''
+  - ''
+  BOARD:
+  - type: held
+  - ''
+  - ''
+  - ''
+  - ''
+  - t: Boot-loader
+    type: danger
+  - t: Boot-loader
+    type: danger
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - t: Reset
+    type: danger
+  - t: Reset
+    type: danger
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - t: ''
+    s: Vol
+    h: ↺− ↻+
+    type: encoder
+  - t: ''
+    s: Défil
+    h: ↺↓ ↻↑
+    type: encoder
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - type: held
+  - ''
+  - ''
+  - ''
+  - ''
+  - type: held
+  - ''
+  - ''

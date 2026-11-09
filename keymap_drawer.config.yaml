@@ -1,0 +1,183 @@
+# Configuration de keymap-drawer (https://github.com/caksoylar/keymap-drawer)
+# Utilisée par scripts/draw_keymap.py, en local comme dans la CI.
+#
+# Les libellés affichent ce qui est réellement obtenu sur un PC en AZERTY français.
+#   - zmk_keycode_map  : libellé d'un keycode seul (ex. &kp Q -> "A")
+#   - raw_binding_map  : libellé d'un binding complet (prioritaire), pour les
+#                        combinaisons de modificateurs et les behaviors custom
+# Champs d'un libellé : t = centre (tap), h = bas (hold), s = haut (shifted).
+
+draw_config:
+  dark_mode: false
+  key_w: 64
+  key_h: 58
+  shrink_wide_legends: 8
+  footer_text: "sofle.keymap — généré par scripts/draw_keymap.py (keymap-drawer)"
+  svg_extra_style: |
+    /* Boutons des encodeurs (molettes) */
+    rect.encoder { fill: #fde9c4; stroke: #c98a1b; stroke-width: 1.5; }
+
+parse_config:
+  trans_legend: {t: "▽", type: trans}
+  sticky_label: "one-shot"
+  toggle_label: "bascule"
+
+  modifier_fn_map:
+    left_ctrl: Ctrl
+    right_ctrl: Ctrl
+    left_shift: Maj
+    right_shift: Maj
+    left_alt: Alt
+    right_alt: AltGr
+    left_gui: Win
+    right_gui: Win
+    keycode_combiner: "{mods}+{key}"
+    mod_combiner: "{mod_1}+{mod_2}"
+
+  zmk_keycode_map:
+    # --- Rangée des chiffres (AZERTY : caractère direct, chiffre avec Maj) ---
+    N1: {t: "&", s: "1"}
+    N2: {t: "é", s: "2"}
+    N3: {t: "\"", s: "3"}
+    N4: {t: "'", s: "4"}
+    N5: {t: "(", s: "5"}
+    N6: {t: "-", s: "6"}
+    NUMBER_6: {t: "-", s: "6"}
+    N7: {t: "è", s: "7"}
+    N8: {t: "_", s: "8"}
+    N9: {t: "ç", s: "9"}
+    N0: {t: "à", s: "0"}
+    GRAVE: "²"
+    MINUS: {t: ")", s: "°"}
+    EQUAL: {t: "=", s: "+"}
+    # --- Lettres qui changent de place en AZERTY ---
+    Q: "A"
+    A: "Q"
+    W: "Z"
+    Z: "W"
+    SEMI: "M"
+    M: {t: ",", s: "?"}
+    COMMA: {t: ";", s: "."}
+    DOT: {t: ":", s: "/"}
+    FSLH: {t: "!", s: "§"}
+    SQT: {t: "ù", s: "%"}
+    LBKT: {t: "^", s: "¨"}
+    RBKT: {t: "$", s: "£"}
+    BSLH: {t: "*", s: "µ"}
+    NUBS: {t: "<", s: ">"}
+    # --- Touches spéciales ---
+    ESC: "Échap"
+    TAB: "Tab ⇥"
+    BSPC: "⌫"
+    BACKSPACE: "⌫"
+    DEL: "Suppr"
+    DELETE: "Suppr"
+    INS: "Inser"
+    LEFT_SHIFT: "⇧ Maj"
+    LSHIFT: "⇧ Maj"
+    RSHFT: "⇧ Maj"
+    LCTRL: "Ctrl"
+    RCTRL: "Ctrl"
+    LALT: "Alt"
+    RIGHT_ALT: "AltGr"
+    LGUI: "Win"
+    SPACE: "Espace"
+    RET: "Entrée ⏎"
+    ENTER: "Entrée ⏎"
+    CAPSLOCK: "Verr. Maj"
+    PRINTSCREEN: "Impr. écran"
+    K_APPLICATION: "Menu"
+    PAGE_UP: "Page ↑"
+    PAGE_DOWN: "Page ↓"
+    HOME: "Début"
+    END: "Fin"
+    LEFT: "←"
+    RIGHT: "→"
+    UP_ARROW: "↑"
+    DOWN: "↓"
+    # --- Multimédia ---
+    C_PLAY_PAUSE: "Play/Pause"
+    C_MUTE: "Muet"
+    C_VOL_UP: "Vol +"
+    C_VOLUME_DOWN: "Vol −"
+    C_VOL_DN: "Vol −"
+    C_PREVIOUS: "⏮ Préc."
+    C_NEXT: "Suiv. ⏭"
+    # --- Pavé numérique ---
+    KP_PLUS: "+"
+    KP_MINUS: "-"
+    KP_SUBTRACT: "-"
+    KP_MULTIPLY: "*"
+    KP_ASTERISK: "*"
+    KP_DIVIDE: "/"
+    KP_EQUAL: "="
+    KP_DOT: "."
+    KP_NUMBER_0: "0"
+    KP_NUMBER_1: "1"
+    KP_NUMBER_2: "2"
+    KP_NUMBER_3: "3"
+    KP_NUMBER_4: "4"
+    KP_NUMBER_5: "5"
+    KP_NUMBER_6: "6"
+    KP_NUMBER_7: "7"
+    KP_NUMBER_8: "8"
+    KP_NUMBER_9: "9"
+
+  raw_binding_map:
+    # --- Tap-dance : 1 appui = modificateur, double appui maintenu = layer ---
+    "&TTH__LGUI_SYMBL": {t: "Win", h: "2× SYMBOLS"}
+    "&TTH__RCTL_SHRTCT": {t: "Ctrl", h: "2× SHORTCUT"}
+    # --- Symboles AZERTY obtenus via AltGr / Maj ---
+    "&kp RA(N4)": "{"
+    "&kp LC(RA(N5))": "["
+    "&kp RA(MINUS)": "]"
+    "&kp RA(EQUAL)": "}"
+    "&kp RA(E)": "€"
+    "&kp LS(LBKT)": "¨"
+    "&kp LS(RBKT)": "£"
+    # --- Raccourcis ---
+    "&kp LC(X)": {t: "Couper", s: "Ctrl+X"}
+    "&kp LC(C)": {t: "Copier", s: "Ctrl+C"}
+    "&kp LC(V)": {t: "Coller", s: "Ctrl+V"}
+    "&kp LC(KP_SLASH)": {t: "Commenter", s: "Ctrl+/"}
+    "&kp LC(LEFT)": {t: "Mot ←", s: "Ctrl+←"}
+    "&kp LC(RIGHT)": {t: "Mot →", s: "Ctrl+→"}
+    "&kp LC(LG(LEFT))": {t: "Bureau ←", s: "Ctrl+Win+←"}
+    "&kp LC(LG(RIGHT))": {t: "Bureau →", s: "Ctrl+Win+→"}
+    # --- Bluetooth (profils numérotés comme dans ZMK, à partir de 0) ---
+    "&bt BT_SEL 0": {t: "BT 0", s: "choisir"}
+    "&bt BT_SEL 1": {t: "BT 1", s: "choisir"}
+    "&bt BT_SEL 2": {t: "BT 2", s: "choisir"}
+    "&bt BT_SEL 3": {t: "BT 3", s: "choisir"}
+    "&bt BT_SEL 4": {t: "BT 4", s: "choisir"}
+    "&bt BT_DISC 0": {t: "BT 0", s: "déconnecter"}
+    "&bt BT_DISC 1": {t: "BT 1", s: "déconnecter"}
+    "&bt BT_DISC 2": {t: "BT 2", s: "déconnecter"}
+    "&bt BT_DISC 3": {t: "BT 3", s: "déconnecter"}
+    "&bt BT_DISC 4": {t: "BT 4", s: "déconnecter"}
+    "&bt BT_CLR": {t: "BT effacer", s: "actif"}
+    # --- Éclairage RGB ---
+    "&rgb_ug RGB_ON": {t: "On", s: "RGB"}
+    "&rgb_ug RGB_OFF": {t: "Off", s: "RGB"}
+    "&rgb_ug RGB_TOG": {t: "On/Off", s: "RGB"}
+    "&rgb_ug RGB_EFF": {t: "Effet +", s: "RGB"}
+    "&rgb_ug RGB_EFR": {t: "Effet −", s: "RGB"}
+    "&rgb_ug RGB_HUI": {t: "Teinte +", s: "RGB"}
+    "&rgb_ug RGB_HUD": {t: "Teinte −", s: "RGB"}
+    "&rgb_ug RGB_SAI": {t: "Satur. +", s: "RGB"}
+    "&rgb_ug RGB_SAD": {t: "Satur. −", s: "RGB"}
+    "&rgb_ug RGB_BRI": {t: "Lumin. +", s: "RGB"}
+    "&rgb_ug RGB_BRD": {t: "Lumin. −", s: "RGB"}
+    "&rgb_w": {t: "Blanc", s: "RGB"}
+    "&rgb_r": {t: "Rouge", s: "RGB"}
+    "&rgb_g": {t: "Vert", s: "RGB"}
+    "&rgb_b": {t: "Bleu", s: "RGB"}
+    "&rgb_p1": {t: "Preset 1", s: "RGB"}
+    "&rgb_p2": {t: "Preset 2", s: "RGB"}
+    "&rgb_p3": {t: "Preset 3", s: "RGB"}
+    "&rgb_p4": {t: "Preset 4", s: "RGB"}
+    "&rgb_p5": {t: "Preset 5", s: "RGB"}
+    # --- Système ---
+    "&ext_power EP_TOG": {t: "On/Off", s: "Alim. ext."}
+    "&bootloader": {t: "Boot-loader", type: danger}
+    "&sys_reset": {t: "Reset", type: danger}
