@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sofle Config Editor</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div>
+      <h1>Sofle — éditeur de configuration</h1>
+      <p class="sub" id="source-info">Chargement des fichiers…</p>
+    </div>
+    <div class="top-actions">
+      <button type="button" id="btn-reload" title="Relire les fichiers et abandonner le brouillon">Repartir des fichiers</button>
+      <a class="btn primary" href="#export">Exporter le code</a>
+    </div>
+  </header>
+
+  <div id="banner" class="banner" hidden></div>
+
+  <main>
+    <nav class="toolbar">
+      <div class="tabs" id="layer-tabs" role="tablist" aria-label="Layers"></div>
+      <div class="toolbar-right">
+        <div class="segmented" id="mode-switch" role="radiogroup" aria-label="Mode">
+          <button type="button" data-mode="keys" class="on">Touches</button>
+          <button type="button" data-mode="colors">Couleurs</button>
+          <button type="button" data-mode="render">Rendu</button>
+        </div>
+        <label class="check" id="bg-toggle-wrap"><input type="checkbox" id="bg-toggle" checked> Fond coloré</label>
+      </div>
+    </nav>
+
+    <div class="workspace">
+      <section class="board-wrap">
+        <div class="board" id="board" aria-label="Clavier Sofle"></div>
+        <div class="legend" id="legend"></div>
+        <div class="sensors" id="sensors"></div>
+      </section>
+      <aside class="panel" id="panel"></aside>
+    </div>
+
+    <section class="issues" id="issues" hidden></section>
+
+    <section class="export" id="export">
+      <div class="export-head">
+        <h2>Export</h2>
+        <button type="button" class="primary" id="btn-export">Générer le code</button>
+        <span class="muted" id="export-status"></span>
+      </div>
+      <div class="export-grid" id="export-grid"></div>
+    </section>
+  </main>
+
+  <pre id="selftest" hidden></pre>
+
+  <script src="keycodes.js"></script>
+  <script src="core.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -37,3 +37,16 @@ https://kriscables.com/zmk-firmware-nicenano/
 QMK tools:
 
 https://config.qmk.fm/#/sofle_choc/LAYOUT
+
+===
+
+EDITEUR LOCAL (touches + couleurs) :
+
+python scripts/config_editor.py
+  -> ouvre http://127.0.0.1:8765/ dans le navigateur (serveur local, lecture seule)
+  -> lit config/sofle.keymap, config/sofle_layers.dtsi, config/sofle_colors.dtsi
+     et les libelles de keymap_drawer.config.yaml
+  -> modes Touches / Couleurs / Rendu, puis "Exporter le code" :
+     copier ou telecharger sofle_layers.dtsi et sofle_colors.dtsi, les remplacer dans config/
+  -> le brouillon est garde dans le navigateur tant qu il n est pas abandonne
+  -> auto-test : http://127.0.0.1:8765/?selftest=1
