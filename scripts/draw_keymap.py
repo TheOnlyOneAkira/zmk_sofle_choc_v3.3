@@ -42,6 +42,11 @@ SENSOR_PAIR_LABELS = {
     ("C_AC_SCROLL_UP", "C_AC_SCROLL_DOWN"): ("Défil", "↺↓ ↻↑"),
 }
 
+# Behaviors de rotation sans paramètre (définis dans sofle.keymap).
+SENSOR_BEHAVIOR_LABELS = {
+    "scroll_enc": ("Défil", "↺↓ ↻↑"),
+}
+
 # Libellés des actions de rotation (keycodes ZMK), pour les autres paires.
 SENSOR_LABELS = {
     "C_VOL_UP": "Vol+", "C_VOLUME_UP": "Vol+",
@@ -105,7 +110,11 @@ def parse_sensor_bindings(keymap_text: str) -> list[list[tuple[str, str]] | None
         if not sb:
             layers.append(None)
             continue
-        encoders = re.findall(r"&inc_dec_kp\s+(\S+)\s+(\S+)", sb.group(1))
+        # Un binding par encodeur : "&inc_dec_kp CW CCW" -> (CW, CCW), "&nom" -> ("&nom",)
+        encoders = []
+        for item in re.findall(r"&[^&]+", sb.group(1)):
+            name, *params = item[1:].split()
+            encoders.append(tuple(params[:2]) if name == "inc_dec_kp" else (f"&{name}",))
         layers.append(encoders)
     return layers
 
@@ -118,12 +127,16 @@ def add_encoders(keymap_yaml: dict, sensors: list) -> None:
     for layer_keys, encoders in zip(keymap_yaml["layers"].values(), sensors):
         if not encoders:
             continue
-        for pos, (cw, ccw) in zip(ENCODER_POSITIONS, encoders):
+        for pos, enc in zip(ENCODER_POSITIONS, encoders):
             key = layer_keys[pos]
             key = dict(key) if isinstance(key, dict) else {"t": key}
-            name, rotation = SENSOR_PAIR_LABELS.get(
-                (cw, ccw), ("Molette", f"↺{sensor_label(ccw)} ↻{sensor_label(cw)}")
-            )
+            if len(enc) == 1:
+                name, rotation = SENSOR_BEHAVIOR_LABELS.get(enc[0][1:], ("Molette", enc[0]))
+            else:
+                cw, ccw = enc
+                name, rotation = SENSOR_PAIR_LABELS.get(
+                    (cw, ccw), ("Molette", f"↺{sensor_label(ccw)} ↻{sensor_label(cw)}")
+                )
             key["s"], key["h"] = name, rotation
             if key.get("type") != "trans":
                 key["type"] = "encoder"

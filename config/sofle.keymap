@@ -12,6 +12,7 @@
 #include <dt-bindings/zmk/outputs.h>  // https://zmk.dev/docs/keymaps/behaviors/outputs
 #include <dt-bindings/led/led.h>  // https://zmk.dev/docs/features/underglow
 #include <dt-bindings/zmk/rgb_layer_colors.h>  // fork : effet "couleurs par layer" (RGB_TRANS)
+#include <dt-bindings/zmk/pointing.h>  // https://zmk.dev/docs/keymaps/behaviors/mouse-emulation (&msc, MOVE_Y)
 
 &pinctrl {
     spi3_default: spi3_default {
@@ -88,6 +89,17 @@
 &right_encoder { steps = <60>; };
 / {
     behaviors {
+        // Encodeur droit = molette de souris : 1 cran d'encodeur -> 1 cran de molette.
+        // &msc avance toutes les 16 ms de vitesse x 16 / 1000 crans, le reste est perdu
+        // au relâchement : vitesse 100 -> 1,6 -> 1 cran ; tap-ms 24 -> un seul pas.
+        // Sens horaire = défilement vers le haut (comme l'ancien C_AC_SCROLL_UP).
+        scroll_enc: scroll_encoder {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&msc MOVE_Y(100)>, <&msc MOVE_Y(-100)>;
+            tap-ms = <24>;
+        };
+
         TD: TD {
             compatible = "zmk,behavior-hold-tap";
             label = "TD";

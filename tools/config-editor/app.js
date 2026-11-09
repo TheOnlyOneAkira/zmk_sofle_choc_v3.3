@@ -400,12 +400,13 @@
   // Encodeurs (sensor-bindings)
   // ---------------------------------------------------------------------
   function sensorPreview(text) {
-    const parts = [];
-    const re = /&(\w+)\s+(\S+)\s+(\S+)/g;
-    let m;
-    while ((m = re.exec(text || ''))) parts.push([m[2], m[3]]);
+    // Un binding par encodeur : "&inc_dec_kp CW CCW" ou behavior sans paramètre ("&scroll_enc").
+    const parts = (text || '').split('&').map((s) => s.trim().split(/\s+/)).filter((p) => p[0]);
     const side = ['Molette gauche', 'Molette droite'];
-    return parts.map(([cw, ccw], i) => {
+    const noParam = { scroll_enc: 'molette souris ↻ haut / ↺ bas' };
+    return parts.map(([name, cw, ccw], i) => {
+      const label = side[i] || 'Molette ' + (i + 1);
+      if (cw === undefined) return `${label} : ${noParam[name] || '&' + name}`;
       const a = S.labeler.keyLabel(cw).t;
       const b = S.labeler.keyLabel(ccw).t;
       return `${side[i] || 'Molette ' + (i + 1)} : ↻ ${a} / ↺ ${b}`;
