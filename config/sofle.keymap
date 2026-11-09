@@ -82,6 +82,10 @@
 // &led_strip { chain-length = <29>; };
 &sensors { triggers-per-rotation = <30>; };
 
+// Encodeurs 30 crans / 15 impulsions : 2 transitions par cran -> 60 par tour
+// (le shield déclare 80, ce qui faisait ignorer un cran sur deux par moments).
+&left_encoder  { steps = <60>; };
+&right_encoder { steps = <60>; };
 / {
     behaviors {
         TD: TD {
