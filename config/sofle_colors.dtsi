@@ -37,11 +37,11 @@
         base_colors {
             layer = <BASE>;
             colors = <
-PUR CYN CYN CYN CYN CYN                 CYN CYN CYN CYN CYN PUR
-PUR WHT WHT WHT WHT WHT                 WHT WHT WHT WHT WHT PUR
-PUR WHT WHT WHT WHT WHT                 WHT WHT WHT WHT WHT PUR
-PUR WHT WHT WHT WHT WHT ___         ___ WHT WHT WHT WHT WHT PUR
-        PUR ORG ORG BLU BLU         BLU BLU ORG ORG PUR
+ORG ORG ORG ORG ORG ORG         ORG ORG ORG ORG ORG ORG
+ORG ORG ORG ORG ORG ORG         ORG ORG ORG ORG ORG ORG
+ORG ORG ORG ORG ORG ORG         ORG ORG ORG ORG ORG ORG
+ORG ORG ORG ORG ORG ORG ___ ___ ORG ORG ORG ORG ORG ORG
+        ORG ORG CYN ORG ORG ORG ORG GRN ORG ORG
             >;
         };
 
@@ -49,11 +49,11 @@ PUR WHT WHT WHT WHT WHT ___         ___ WHT WHT WHT WHT WHT PUR
         settings_colors {
             layer = <SETTINGS>;
             colors = <
-BLU BLU BLU BLU BLU OFF                 OFF OFF OFF OFF OFF OFF
-CYN CYN CYN CYN CYN OFF                 OFF OFF WHT OFF OFF OFF
-___ OFF OFF OFF OFF OFF                 OFF WHT WHT WHT OFF OFF
-RED OFF OFF OFF OFF OFF OFF         OFF OFF OFF OFF OFF ___ ___
-        ___ ___ ___ ___ ___         ___ ___ ___ ___ ___
+GRN GRN GRN GRN GRN OFF         OFF OFF OFF OFF OFF OFF
+ORG ORG ORG ORG ORG OFF         OFF OFF P2C OFF OFF OFF
+___ OFF OFF OFF OFF OFF         OFF P2C P2C P2C OFF OFF
+RED OFF OFF OFF OFF OFF OFF OFF OFF OFF OFF OFF ___ ___
+        ___ ___ ___ ___ ___ ___ ___ ___ ___ ___
             >;
         };
 
@@ -61,11 +61,11 @@ RED OFF OFF OFF OFF OFF OFF         OFF OFF OFF OFF OFF ___ ___
         symbols_colors {
             layer = <SYMBOLS>;
             colors = <
-___ GRN GRN GRN GRN GRN                 GRN GRN GRN GRN GRN GRN
-___ OFF OFF OFF OFF OFF                 GRN GRN GRN GRN GRN GRN
-___ OFF OFF OFF OFF OFF                 GRN GRN GRN GRN GRN ___
-___ OFF OFF GRN GRN GRN ___         ___ GRN GRN GRN GRN GRN ___
-        OFF OFF PUR OFF ___         ___ ___ ___ ___ ___
+___ GRN GRN GRN GRN GRN         GRN GRN GRN GRN GRN GRN
+___ OFF OFF OFF OFF OFF         GRN GRN GRN GRN GRN GRN
+___ OFF OFF OFF OFF OFF         GRN GRN GRN GRN GRN ___
+___ OFF OFF GRN GRN GRN ___ ___ GRN GRN GRN OFF GRN ___
+        OFF OFF P4C OFF ___ ___ ___ ___ CYN ___
             >;
         };
 
@@ -73,11 +73,11 @@ ___ OFF OFF GRN GRN GRN ___         ___ GRN GRN GRN GRN GRN ___
         shortcuts_colors {
             layer = <SHORTCUTS>;
             colors = <
-___ ___ ___ ___ ___ ___                 ___ ___ ___ ___ ___ YEL
-___ YEL YEL YEL OFF YEL                 YEL YEL WHT YEL ___ YEL
-___ OFF OFF OFF OFF OFF                 YEL WHT WHT WHT YEL YEL
-OFF YEL YEL YEL YEL OFF ___         ___ OFF YEL OFF YEL YEL YEL
-        ___ ___ ___ ___ ___         ___ PUR ___ ___ ___
+___ ___ ___ ___ ___ ___         ___ ___ ___ ___ ___ CYN
+___ CYN CYN CYN OFF CYN         CYN CYN CYN CYN ___ CYN
+___ OFF OFF OFF OFF OFF         CYN CYN CYN CYN CYN CYN
+OFF CYN CYN CYN CYN OFF ___ ___ OFF CYN OFF CYN CYN CYN
+        ___ GRN ___ ___ ___ ___ ___ P4C ___ ___
             >;
         };
 
@@ -85,11 +85,11 @@ OFF YEL YEL YEL YEL OFF ___         ___ OFF YEL OFF YEL YEL YEL
         numpad_colors {
             layer = <NUMPAD>;
             colors = <
-CYN OFF OFF CYN CYN CYN                 ORG OFF OFF OFF OFF OFF
-OFF OFF OFF CYN CYN CYN                 ORG WHT WHT WHT OFF ORG
-CYN OFF OFF CYN CYN CYN                 ORG WHT WHT WHT OFF OFF
-WHT OFF OFF OFF OFF OFF ___         ___ ORG WHT WHT WHT OFF OFF
-        P1C P2C P3C P4C P5C         ORG ORG WHT ORG ORG
+WHT OFF OFF WHT WHT WHT         WHT OFF OFF OFF OFF OFF
+OFF OFF OFF WHT WHT WHT         WHT WHT WHT WHT OFF WHT
+WHT OFF OFF WHT WHT WHT         WHT WHT WHT WHT OFF OFF
+WHT OFF OFF OFF OFF OFF ___ ___ WHT WHT WHT WHT OFF OFF
+        WHT WHT WHT WHT WHT WHT WHT WHT WHT WHT
             >;
         };
 
@@ -97,11 +97,11 @@ WHT OFF OFF OFF OFF OFF ___         ___ ORG WHT WHT WHT OFF OFF
         extras_colors {
             layer = <EXTRAS>;
             colors = <
-RED OFF OFF OFF OFF OFF                 OFF OFF OFF OFF OFF RED
-OFF OFF OFF OFF OFF OFF                 OFF OFF OFF OFF OFF OFF
-OFF OFF OFF OFF OFF OFF                 OFF PUR OFF PUR OFF OFF
-OFF OFF OFF OFF OFF OFF OFF         OFF OFF OFF OFF OFF OFF OFF
-        OFF OFF OFF OFF PUR         PUR OFF OFF OFF OFF
+P3C OFF OFF OFF OFF OFF         OFF OFF OFF OFF OFF P3C
+OFF OFF OFF OFF OFF OFF         OFF OFF OFF OFF OFF OFF
+OFF OFF OFF OFF OFF OFF         OFF P4C OFF P4C OFF OFF
+OFF OFF OFF OFF OFF OFF OFF OFF OFF OFF OFF OFF OFF OFF
+        OFF OFF OFF OFF P4C P4C OFF OFF OFF OFF
             >;
         };
 
@@ -109,11 +109,11 @@ OFF OFF OFF OFF OFF OFF OFF         OFF OFF OFF OFF OFF OFF OFF
         board_colors {
             layer = <BOARD>;
             colors = <
-OFF OFF OFF OFF OFF RED                 RED OFF OFF OFF OFF OFF
-OFF OFF OFF OFF OFF ORG                 ORG OFF OFF OFF OFF OFF
-OFF OFF OFF OFF OFF OFF                 OFF OFF OFF OFF OFF OFF
-OFF OFF OFF OFF OFF OFF OFF         OFF OFF OFF OFF OFF OFF OFF
-        OFF OFF OFF OFF OFF         OFF OFF OFF OFF OFF
+OFF OFF OFF OFF OFF P3C         P3C OFF OFF OFF OFF OFF
+OFF OFF OFF OFF OFF P3C         P3C OFF OFF OFF OFF OFF
+OFF OFF OFF OFF OFF OFF         OFF OFF OFF OFF OFF OFF
+OFF OFF OFF OFF OFF OFF OFF OFF OFF OFF OFF OFF OFF OFF
+        OFF OFF OFF OFF OFF OFF OFF OFF OFF OFF
             >;
         };
     };
